@@ -19,7 +19,7 @@
       state: present
   - name: Add apt repo
     apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
       state: present
   - name: Install docker and dependencies
     apt:
