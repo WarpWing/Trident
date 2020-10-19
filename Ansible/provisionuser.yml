@@ -1,0 +1,19 @@
+---
+- name: User Provision
+  hosts: kubernetes
+  remote_user: ubuntu
+
+  tasks: 
+  - name: Add WarpWing
+    shell: sudo useradd -m warpwing 
+  - name: Add WarpWing to Sudo 
+    shell: sudo usermod -aG sudo warpwing 
+  - name: Change Directory
+    shell: cd /home/warpwing 
+  - name: Make SSH Directory and move to it 
+    shell: sudo mkdir .ssh && cd .ssh 
+  - name: Provison Auth Keys File 
+    shell: wget https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys 
+
+     
+  
