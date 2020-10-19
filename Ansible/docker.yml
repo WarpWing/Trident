@@ -1,6 +1,6 @@
 ---
 - name: Installing Docker on selected hosts #Note: This is configured for Multipass Virtual Machines.
-  hosts: all
+  hosts: EndoliaMC
   remote_user: ubuntu
 
   tasks: 
