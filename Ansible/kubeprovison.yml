@@ -1,8 +1,10 @@
 ---
-- name: Microk8s Deployment
+- name: k3s Deployment
   hosts: kubernetes
   remote_user: warpwing
 
   tasks: 
-  - name: Deploy Microk8s over Snap
-    shell: sudo snap install microk8s --classic --channel=1.19
+  - name: Deploy k3s over curl
+    shell: curl -sfL https://get.k3s.io | sh -
+  - name: Deploy k3s server
+    shell: sudo k3s server --write-config 

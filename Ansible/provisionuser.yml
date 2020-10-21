@@ -9,11 +9,11 @@
   - name: Add WarpWing to Sudo 
     shell: sudo usermod -aG sudo warpwing 
   - name: Change Directory
-    shell: cd /home/warpwing 
+    shell: cd /home/warpwing/
   - name: Make SSH Directory and move to it 
     shell: sudo mkdir .ssh && cd .ssh 
   - name: Provison Auth Keys File 
-    shell: wget https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys 
+    shell: wget -q https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys 
 
      
   
