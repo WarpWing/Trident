@@ -6,14 +6,13 @@
   tasks: 
   - name: Update Package Repository
     shell: sudo apt-get update 
-  - name: Install Docker Requirements 
-    shell: sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-  - name: Install Docker Verification Key 
-    shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
+  - name: Install required system packages
+    apt: name={{ item }} state=latest update_cache=yes
+    loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
   - name: Add Docker Repo to Source List
     shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
   - name: Update Package Repository after Docker Repo Added from Source List
-    shell: sudo apt-get update -y 
+    apt: upgrade=dist force_apt_get=yes 
   - name: Install Docker from Repository
     shell: sudo apt-get install docker-ce docker-ce-cli containerd.io -y
   - name: Docker Version Check
