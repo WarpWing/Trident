@@ -9,6 +9,8 @@
     apt:  upgrade=dist force_apt_get=yes
   - name: Update apt-cache 
     apt: update_cache=yes
-  
+  - name: Daily Reboot
+    reboot: 
+    when: ansible_os_family == "Debian"
     
   
