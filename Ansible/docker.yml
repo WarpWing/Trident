@@ -2,13 +2,15 @@
 - name: Installing Docker on selected hosts #Note: This is configured for Multipass Virtual Machines.
   hosts: kubernetes
   remote_user: ubuntu
+  become: yes
 
   tasks: 
   - name: Updating Packages 
     apt:  upgrade=dist force_apt_get=yes
   - name: Update apt-cache 
     apt: update_cache=yes
-  - name: Deploying Docker Helper 
-    get_url: 
-      url: https://get.docker.com -o get-docker.sh
-  # Note: Need to rewrite to include actual Ansible Modules :)
+  - name: Downloading and Deploying Docker Helper Script
+    shell: curl https://get.docker.com -o get-docker.sh | sh -
+    args:
+     warn: no
+    
