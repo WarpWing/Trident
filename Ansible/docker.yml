@@ -4,17 +4,11 @@
   remote_user: ubuntu
 
   tasks: 
-  - name: Update Package Repository
-    shell: sudo apt-get update 
-  - name: Install required system packages
-    apt: name={{ item }} state=latest update_cache=yes
-    loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
-  - name: Add Docker Repo to Source List
-    shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
-  - name: Update Package Repository after Docker Repo Added from Source List
-    apt: upgrade=dist force_apt_get=yes 
-  - name: Install Docker from Repository
-    shell: sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-  - name: Docker Version Check
-    shell: docker -v
+  - name: Updating Packages 
+    apt:  upgrade=dist force_apt_get=yes
+  - name: Update apt-cache 
+    apt: update_cache=yes
+  - name: Deploying Docker Helper 
+    get_url: 
+      url: https://get.docker.com -o get-docker.sh
   # Note: Need to rewrite to include actual Ansible Modules :)
