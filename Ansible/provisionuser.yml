@@ -4,7 +4,7 @@
   remote_user: ubuntu 
 
   env:
-   user: debian
+   user: ubuntu
 
   tasks: 
   - name: Add ${USER}
@@ -14,9 +14,10 @@
   - name: Change Directory
     shell: cd /home/${USER}/
   - name: Make SSH Directory and move to it 
-    shell: sudo mkdir .ssh && cd .ssh 
+    shell: mkdir .ssh && cd .ssh 
   - name: Provison Auth Keys File 
     shell: sudo wget https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys 
+  # Need to rewrite this to make it actually work
 
      
   
