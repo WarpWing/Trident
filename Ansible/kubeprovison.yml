@@ -1,10 +1,11 @@
----
-- name: k3s Deployment
-  hosts: kubernetes
+- name: Playbook Alpha
+  hosts: all
   remote_user: warpwing
+  
+  vars:
+    kraken: test
 
-  tasks: 
-  - name: Deploy k3s over curl
-    shell: curl -sfL https://get.k3s.io | sh -
-  - name: Deploy k3s server
-    shell: sudo k3s server --write-config 
+  tasks:
+    - name: Install k3s
+      shell: touch "{{kraken}}"
+   

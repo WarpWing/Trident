@@ -4,7 +4,6 @@
   remote_user: ubuntu
 
   tasks: 
-  - name: Running Ping Check aganist Google's DNS
-    shell: ping 8.8.8.8 -c 5 
   - name: Updating Packages 
-    shell: sudo apt update -y && sudo apt upgrade -y
+    apt:  upgrade=dist force_apt_get=yes
+  
