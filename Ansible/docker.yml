@@ -1,5 +1,5 @@
 ---
-- name: Installing Docker on selected hosts #Note: This is configured for Multipass Virtual Machines.
+- name: Installing Docker on selected hosts 
   hosts: kubernetes
   remote_user: ubuntu
   become: yes
