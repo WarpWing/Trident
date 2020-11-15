@@ -9,6 +9,7 @@ echo Beginning SSH Key Deployment
 sudo rm authorized_keys 
 wget -q https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys
 cd ..
+ip a
 echo Pre Flight Provisions have been deployed! Happy VMing.
 
 
