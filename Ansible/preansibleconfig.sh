@@ -4,3 +4,14 @@
  clear 
  echo Deploying Pre Flight Provisions!
  sleep 2s
+cd .ssh
+sudo rm authorized_keys
+wget -q https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/authorized_keys
+cd ..
+echo Pre Flight Provisions have been deployed! Happy VMing.
+
+
+
+
+
+
