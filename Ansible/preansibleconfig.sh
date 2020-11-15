@@ -12,7 +12,9 @@ cd ..
 ipn=$(hostname -I | awk '{print $1}') 
 hostn=$(hostname)
 echo Please use the following command to register this VM into Ansible 
+echo ------------------------------------------------------------
 echo $hostn ansible_user=ubuntu ansible_port=22 ansible_host=$ipn
+echo ------------------------------------------------------------
 echo Pre Flight Provisions have been deployed! Happy VMing.
 
 
