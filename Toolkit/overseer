@@ -9,9 +9,3 @@ echo ------------------------------------------------------------
 echo $hostn ansible_host=$ipn
 echo ------------------------------------------------------------
 echo Pre Flight Provisions have been deployed! Happy VMing.
-
-
-
-
-
-
