@@ -1,0 +1,11 @@
+#!/usr/bin/env python3 
+import subprocess
+import os 
+import time 
+
+print("---------------------------------------------------------------------------")
+x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
+subprocess_return = x.stdout.read()
+print(subprocess_return.decode("ascii"))
+print("---------------------------------------------------------------------------")
+time.sleep(20)
