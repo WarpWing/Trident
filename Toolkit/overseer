@@ -1,11 +1,6 @@
 #!/bin/bash
-# In order to deploy this, use the command below!
-# Command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/WarpWing/Trident/main/Ansible/preansibleconfig.sh)"
-clear 
-ipn=$(hostname -I | awk '{print $1}') 
-hostn=$(hostname)
-echo Please use the following data to register this VM into Ansible 
-echo ------------------------------------------------------------
-echo $hostn ansible_host=$ipn
-echo ------------------------------------------------------------
-echo Pre Flight Provisions have been deployed! Happy VMing.
+clear
+multipass list 
+read -p "Please type the name of the VM you would like to register: " hostname
+ipn=$(multipass list | grep $hostname | awk '{print $3}')
+echo $hostname ansible_host=$ipn | sudo tee -a /etc/ansible/hosts
