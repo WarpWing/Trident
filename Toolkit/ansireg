@@ -1,6 +1,0 @@
-#!/bin/bash
-clear
-multipass list 
-read -p "Please type the name of the VM you would like to register: " hostname
-ipn=$(multipass list | grep $hostname | awk '{print $3}')
-echo $hostname ansible_host=$ipn | sudo tee -a /etc/ansible/hosts
