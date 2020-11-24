@@ -3,9 +3,13 @@ import subprocess
 import os 
 import time 
 
+x = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/WarpWing/Trident/main/Toolkit/overseer)"'
 print("---------------------------------------------------------------------------")
 x = subprocess.Popen("multipass list", shell=True, stdout=subprocess.PIPE)
 subprocess_return = x.stdout.read()
 print(subprocess_return.decode("ascii"))
 print("---------------------------------------------------------------------------")
-time.sleep(20)
+time.sleep(5)
+os.system("clear")
+os.system(f"ssh warpwing@10.98.120.160 {x}")
+time.sleep(4)
