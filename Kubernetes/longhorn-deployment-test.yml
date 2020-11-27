@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: longhorn
 spec:
-  replicas: 2
+  replicas: 6
   revisionHistoryLimit: 3
   selector:
     matchLabels:
