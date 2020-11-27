@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: longhorn
+  name: trident
 spec:
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: longhorn
+      app: trident
   template:
     metadata:
       labels:
-        app: longhorn
+        app: trident
     spec:
       containers:
       - image: nginx:latest
-        name: longhorn
+        name: trident
         ports:
         - containerPort: 80

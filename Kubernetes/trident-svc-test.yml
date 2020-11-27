@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: longhorn
+  name: trident
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: longhorn
+    app: trident
