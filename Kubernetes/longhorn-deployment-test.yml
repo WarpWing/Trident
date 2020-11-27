@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longhorn
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: longhorn
+  template:
+    metadata:
+      labels:
+        app: longhorn
+    spec:
+      containers:
+      - image: nginx:latest
+        name: longhorn
+        ports:
+        - containerPort: 80
