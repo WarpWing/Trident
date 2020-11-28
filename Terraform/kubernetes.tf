@@ -8,6 +8,13 @@ terraform {
 
 provider "kubernetes" {}
 
+
+data "kubernetes_namespace" "nginx" {
+  metadata {
+    name = "terraform-learn"
+  }
+} 
+
 resource "kubernetes_deployment" "nginx" {
   metadata {
     name = "SentinelNginxTest"
