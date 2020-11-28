@@ -17,7 +17,7 @@ resource "kubernetes_deployment" "nginx" {
   }
 
   spec {
-    replicas = 2
+    replicas = 1
     selector {
       match_labels = {
         App = "SentinelNginxTest"
@@ -32,7 +32,7 @@ resource "kubernetes_deployment" "nginx" {
       spec {
         container {
           image = "nginx:1.7.8"
-          name  = "example"
+          name  = "SentinelNginxTest"
 
           port {
             container_port = 80
