@@ -1,3 +1,4 @@
 .vscode/
 Docker/gitea/*
-Terraform/.terraform/*
+.terraform*
+Terraform/terraform.tfstate
