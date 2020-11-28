@@ -17,9 +17,9 @@ data "kubernetes_namespace" "nginx" {
 
 resource "kubernetes_deployment" "nginx" {
   metadata {
-    name = "SentinelNginxTest"
+    name = "sentinelnginxtest"
     labels = {
-      App = "SentinelNginxTest"
+      App = "sentinelnginxtest"
     }
   }
 
@@ -27,19 +27,19 @@ resource "kubernetes_deployment" "nginx" {
     replicas = 1
     selector {
       match_labels = {
-        App = "SentinelNginxTest"
+        App = "sentinelnginxtest"
       }
     }
     template {
       metadata {
         labels = {
-          App = "SentinelNginxTest"
+          App = "sentinelnginxtest"
         }
       }
       spec {
         container {
           image = "nginx:1.7.8"
-          name  = "SentinelNginxTest"
+          name  = "sentinelnginxtest"
 
           port {
             container_port = 80
