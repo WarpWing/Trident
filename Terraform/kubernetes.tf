@@ -9,15 +9,10 @@ terraform {
 provider "kubernetes" {}
 
 
-data "kubernetes_namespace" "nginx" {
-  metadata {
-    name = "terraform-learn"
-  }
-} 
-
 resource "kubernetes_deployment" "nginx" {
   metadata {
     name = "sentinelnginxtest"
+    namespace = "terraform-learn"
     labels = {
       App = "sentinelnginxtest"
     }
@@ -58,5 +53,24 @@ resource "kubernetes_deployment" "nginx" {
         }
       }
     }
+  }
+} 
+
+resource "kubernetes_service" "nginx" {
+  metadata {
+    name = "sentinelnginxtest"
+    namespace = "terraform-learn"
+  }
+  spec {
+    selector = {
+      App = kubernetes_deployment.nginx.spec.0.template.0.metadata[0].labels.App
+    }
+    port {
+      node_port   = 30201
+      port        = 80
+      target_port = 80
+    }
+
+    type = "NodePort"
   }
 }
