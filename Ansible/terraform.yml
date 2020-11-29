@@ -1,0 +1,6 @@
+---
+- name: Deploy Terraform
+  hosts: '{{ target }}'
+  become: true
+  roles:
+    - { role: terraform }

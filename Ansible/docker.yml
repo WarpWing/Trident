@@ -1,0 +1,6 @@
+---
+- name: Deploy Docker
+  hosts: '{{ target }}'
+  become: true
+  roles:
+    - { role: docker }
