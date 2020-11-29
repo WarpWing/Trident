@@ -1,6 +1,6 @@
 ---
 - name: Daily Operations Playbook
-  hosts: '{{ target }}'
+  hosts: all
   remote_user: ubuntu
   become: yes
 
