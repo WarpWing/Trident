@@ -3,4 +3,4 @@
   hosts: '{{ target }}'
   become: true
   roles:
-    - { role: terraform }
+    - terraform
