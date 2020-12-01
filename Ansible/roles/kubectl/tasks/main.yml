@@ -3,5 +3,4 @@
   get_url:
       url: https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl 
       mode: +x 
-      dest: /usr/bin
-      
+      dest: /usr/bin/kubectl
