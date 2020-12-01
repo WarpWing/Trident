@@ -11,5 +11,6 @@
   args:
     warn: no
 - name: Add User to Docker Group 
-  shell: sudo usermod -aG docker $USER
+  become_user: ubuntu
+  shell: sudo usermod -aG docker $USER # I don't like how I have to use shell but it seems like it's the best to add a EXISTING user to the group.
     

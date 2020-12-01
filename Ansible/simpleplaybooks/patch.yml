@@ -1,0 +1,11 @@
+---
+- name: Patch Testing Playbook
+  hosts: '{{ target }}'
+  remote_user: ubuntu
+  become: yes
+
+  tasks: 
+  - name: The name of this user is '{{ user }}'
+    command: echo hello
+ 
+    
