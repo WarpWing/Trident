@@ -3,4 +3,6 @@
   hosts: '{{ target }}'
   become: true
   roles:
+    - docker
+    - kubectl
     - kind

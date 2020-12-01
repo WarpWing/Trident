@@ -1,11 +1,7 @@
 ---
-- name: Install Unzip
-  apt: 
-    name: unzip
-    state: latest
- 
 - name: Terraform Binary Install
-  unarchive:
-    src: https://releases.hashicorp.com/terraform/0.9.1/terraform_0.9.1_linux_amd64.zip
-    dest: /usr/bin
-    remote_src: True
+  get_url:
+      url: https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl 
+      mode: +x 
+      dest: /usr/bin
+      
