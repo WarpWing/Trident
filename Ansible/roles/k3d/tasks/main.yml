@@ -1,0 +1,9 @@
+---
+- name: Get K3D Install Script
+  get_url: 
+    url: https://raw.githubusercontent.com/rancher/k3d/main/install.sh
+    mode: +x
+    dest: /tmp/install.sh 
+
+- name: Install K3D Script 
+  script: /tmp/install.sh 
