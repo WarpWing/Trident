@@ -1,4 +1,4 @@
----
+--- # patch.yml is mostly for short term operations or testing.
 - name: Patch Testing Playbook
   hosts: '{{ target }}'
   remote_user: ubuntu
