@@ -1,0 +1,15 @@
+---
+- name: Deploy Longhorn using AKT # AKT Stands for Ansible Kubernetes Terraform
+  hosts: all
+  remote_user: ubuntu
+  become: yes 
+  roles:
+    - docker
+    - kubectl
+    - kind
+
+  tasks: 
+  - name: Update apt-cache 
+    apt: update_cache=yes
+  - name: Updating Packages 
+    apt:  upgrade=dist force_apt_get=yes
