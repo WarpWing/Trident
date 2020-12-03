@@ -7,9 +7,13 @@
     - docker
     - kubectl
     - kind
+    - terraform 
 
   tasks: 
-  - name: Update apt-cache 
-    apt: update_cache=yes
-  - name: Updating Packages 
-    apt:  upgrade=dist force_apt_get=yes
+  - name: Get Kind configuration 
+  - name: Get Terraform configuration 
+  - name: Initialize a working Terraform directory
+  - name: Initiate Kind Cluster 
+  - name: Apply Terraform Deployment with auto validation.
+
+   

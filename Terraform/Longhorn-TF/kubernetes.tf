@@ -8,11 +8,16 @@ terraform {
 
 provider "kubernetes" {}
 
+resource "kubernetes_namespace" "longhorn" {
+  metadata {
+    name = "terraform-longhorn"
+  }
+}
 
 resource "kubernetes_deployment" "longhorn" {
   metadata {
     name = "longhorn"
-    namespace = "terraform-learn"
+    namespace = "terraform-longhorn"
     labels = {
       App = "longhorn"
     }
@@ -59,7 +64,7 @@ resource "kubernetes_deployment" "longhorn" {
 resource "kubernetes_service" "longhorn" {
   metadata {
     name = "longhorn"
-    namespace = "terraform-learn"
+    namespace = "terraform-longhorn"
   }
   spec {
     selector = {
