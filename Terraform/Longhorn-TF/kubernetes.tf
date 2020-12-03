@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "longhorn" {
       }
       spec {
         container {
-          image = "nginx:1.7.8"
+          image = "warpwing/longhornprod:latest"
           name  = "longhorn"
 
           port {
