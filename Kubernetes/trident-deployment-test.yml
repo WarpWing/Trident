@@ -14,7 +14,7 @@ spec:
         app: trident
     spec:
       containers:
-      - image: nginx:latest
+      - image: warpwing/longhornprod:latest
         name: trident
         ports:
         - containerPort: 80
