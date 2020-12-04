@@ -3,3 +3,5 @@ Docker/gitea/*
 .terraform*
 Terraform/terraform.tfstate
 Terraform/terraform.tfstate.backup
+Terraform/Sentinel-Nginx-Test/terraform.tfstate
+Terraform/Sentinel-Nginx-Test/terraform.tfstate.backup

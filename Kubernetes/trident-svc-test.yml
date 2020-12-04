@@ -1,10 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: trident
+  labels:
+    app: longhorn
+  name: longhorn
 spec:
-  ports:
-  - port: 80
-    targetPort: 80
+  type: LoadBalancer
   selector:
-    app: trident
+    app: longhorn
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
