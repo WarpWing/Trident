@@ -14,7 +14,7 @@ spec:
         app: trident
     spec:
       containers:
-      - image: warpwing/longhornprod:latest
+      - image: warpwing/longhornprod
         name: trident
         ports:
         - containerPort: 5000
