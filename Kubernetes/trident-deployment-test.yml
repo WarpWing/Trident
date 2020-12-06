@@ -4,7 +4,7 @@ metadata:
   name: trident
 spec:
   replicas: 4
-  revisionHistoryLimit: 10
+  revisionHistoryLimit: 8
   selector:
     matchLabels:
       app: trident
