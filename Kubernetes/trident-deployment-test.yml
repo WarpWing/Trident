@@ -13,7 +13,6 @@ spec:
       labels:
         app: trident
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
       - image: warpwing/longhornprod
         imagePullPolicy: "Always"
