@@ -20,7 +20,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - image: warpwing/longhornprod
+      - image: warpwing/longhornprod:latest
         imagePullPolicy: "Always"
         name: trident
         ports:
