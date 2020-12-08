@@ -68,7 +68,7 @@ resource "kubernetes_service" "longhorn" {
   }
   spec {
     selector = {
-      App = kubernetes_deployment.longhorn.spec.0.template.0.metadata[0].labels.App
+      App = longhorn
     }
     port {
       port        = 80
