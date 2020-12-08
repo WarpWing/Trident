@@ -17,63 +17,71 @@ resource "kubernetes_namespace" "longhorn" {
 resource "kubernetes_deployment" "longhorn" {
   metadata {
     name = "longhorn"
-    namespace = "terraform-longhorn"
-    labels = {
-      App = "longhorn"
-    }
   }
 
   spec {
-    replicas = 1
+    replicas = 2
+
     selector {
       match_labels = {
-        App = "longhorn"
+        app = "longhorn"
       }
     }
+
     template {
       metadata {
         labels = {
-          App = "longhorn"
+          app = "longhorn"
         }
       }
+
       spec {
         container {
-          image = "warpwing/longhornprod:latest"
           name  = "longhorn"
+          image = "warpwing/longhornprod:latest"
 
           port {
             container_port = 5000
           }
 
-          resources {
-            limits {
-              cpu    = "0.7"
-              memory = "900Mi"
-            }
-            requests {
-              cpu    = "250m"
-              memory = "500Mi"
-            }
-          }
+          image_pull_policy = "Always"
         }
+
+        termination_grace_period_seconds = 10
       }
     }
+
+    strategy {
+      type = "RollingUpdate"
+
+      rolling_update {
+        max_surge = "1"
+      }
+    }
+
+    revision_history_limit = 2
   }
-} 
+}
+
 
 resource "kubernetes_service" "longhorn" {
   metadata {
     name = "longhorn"
-    namespace = "terraform-longhorn"
-  }
-  spec {
-    selector = {
-      App = kubernetes_deployment.longhorn.spec.0.template.0.metadata[0].labels.App
+
+    labels = {
+      app = "longhorn"
     }
+  }
+
+  spec {
     port {
-      protocol = "TCP"
-      port        = 80
-      target_port = 5000
+      protocol    = "TCP"
+      port        = 5000
+      target_port = "5000"
+    }
+
+    selector = {
+      app = "longhorn"
     }
 
     type = "LoadBalancer"
