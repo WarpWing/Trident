@@ -71,11 +71,11 @@ resource "kubernetes_service" "longhorn" {
       App = kubernetes_deployment.longhorn.spec.0.template.0.metadata[0].labels.App
     }
     port {
-      node_port   = 30201
+
       port        = 5000
       target_port = 5000
     }
 
-    type = "NodePort"
+    type = "LoadBalancer"
   }
 }
