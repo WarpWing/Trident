@@ -68,9 +68,10 @@ resource "kubernetes_service" "longhorn" {
   }
   spec {
     selector = {
-      App = longhorn
+      App = kubernetes_deployment.longhorn.spec.0.template.0.metadata[0].labels.App
     }
     port {
+      protocol = "TCP"
       port        = 80
       target_port = 5000
     }
