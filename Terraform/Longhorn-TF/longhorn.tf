@@ -17,6 +17,7 @@ resource "kubernetes_namespace" "longhorn" {
 resource "kubernetes_deployment" "longhorn" {
   metadata {
     name = "longhorn"
+    namespace = "terraform-longhorn"
   }
 
   spec {
@@ -67,6 +68,7 @@ resource "kubernetes_deployment" "longhorn" {
 resource "kubernetes_service" "longhorn" {
   metadata {
     name = "longhorn"
+    namespace = "terraform-longhorn"
 
     labels = {
       app = "longhorn"
