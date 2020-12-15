@@ -16,12 +16,12 @@ resource "kubernetes_namespace" "longhorn" {
 
 resource "kubernetes_deployment" "longhorn" {
   metadata {
-    name = "longhorn"
+    name = "terraform-longhorn"
     namespace = "terraform-longhorn"
   }
 
   spec {
-    replicas = 2
+    replicas = 3
 
     selector {
       match_labels = {
@@ -38,7 +38,7 @@ resource "kubernetes_deployment" "longhorn" {
 
       spec {
         container {
-          name  = "longhorn"
+          name  = "terraform-longhorn"
           image = "warpwing/longhornprod:latest"
 
           port {
@@ -67,7 +67,7 @@ resource "kubernetes_deployment" "longhorn" {
 
 resource "kubernetes_service" "longhorn" {
   metadata {
-    name = "longhorn"
+    name = "terraform-longhorn"
     namespace = "terraform-longhorn"
 
     labels = {
