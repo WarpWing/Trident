@@ -1,0 +1,1 @@
+# Cloud Init template for my Optimus VM Instances. Designed to link up with Ansible and install all the proper dependencies for a efficent Kubernetes Workload.
