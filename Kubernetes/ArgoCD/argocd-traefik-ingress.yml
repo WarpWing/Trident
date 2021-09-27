@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service
+  namespace: default
+spec:
+  selector:
+    k8s-app: app.kubernetes.io/name=argocd-server
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: admin
